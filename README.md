@@ -57,6 +57,7 @@ taskflow/
 │   └── server.js
 │
 └── frontend/
+    ├── .env
     └── src/
         ├── components/
         │   ├── ProtectedRoute.jsx
@@ -195,3 +196,25 @@ Visit **https://taskflow-6d6a3.web.app/signup**
 - User-task isolation enforced at the **database query level** (userId filter)
 - Input validation on all endpoints via express-validator
 - CORS configured for specific frontend origin
+
+---
+
+# 🎯 Why this is good
+
+✔ Clean structure  
+✔ Beginner friendly  
+✔ Covers both local + production  
+✔ No confusion  
+
+---
+
+# 🚀 If you want next
+
+I can upgrade your README with:
+
+👉 Screenshots section  
+<img width="1918" height="957" alt="image" src="https://github.com/user-attachments/assets/f5023cf8-e59b-46d5-aff3-f511a51ee3a7" />
+<img width="1917" height="957" alt="image" src="https://github.com/user-attachments/assets/f06277c9-db8b-4521-b56e-7a0803ba0a0e" />
+<img width="1916" height="961" alt="image" src="https://github.com/user-attachments/assets/2b432c17-82e7-4dc1-adba-7c2e9a716a8e" />
+
+Just say 👍
