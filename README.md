@@ -53,7 +53,7 @@ taskflow/
 │   ├── routes/
 │   │   ├── auth.js            # /api/auth/*
 │   │   └── tasks.js           # /api/tasks/*
-│   ├── .env.example
+│   ├── .env
 │   └── server.js
 │
 └── frontend/
