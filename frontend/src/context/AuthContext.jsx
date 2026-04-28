@@ -12,18 +12,23 @@ export const AuthProvider = ({ children }) => {
       return null;
     }
   });
+
   const [loading, setLoading] = useState(true);
 
-  // Verify token on mount
   useEffect(() => {
     const verifyUser = async () => {
       const token = localStorage.getItem('token');
-      if (!token) { setLoading(false); return; }
+
+      if (!token) {
+        setLoading(false);
+        return;
+      }
+
       try {
         const { data } = await api.get('/auth/me');
         setUser(data.user);
         localStorage.setItem('user', JSON.stringify(data.user));
-      } catch {
+      } catch (err) {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         setUser(null);
@@ -31,22 +36,27 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
       }
     };
+
     verifyUser();
   }, []);
 
   const login = useCallback(async (email, password) => {
     const { data } = await api.post('/auth/login', { email, password });
+
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data.user));
     setUser(data.user);
+
     return data;
   }, []);
 
   const signup = useCallback(async (name, email, password) => {
     const { data } = await api.post('/auth/signup', { name, email, password });
+
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data.user));
     setUser(data.user);
+
     return data;
   }, []);
 
@@ -64,7 +74,7 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => {
-  const ctx = useContext(AuthContext);
-  if (!ctx) throw new Error('useAuth must be used within AuthProvider');
-  return ctx;
+  const context = useContext(AuthContext);
+  if (!context) throw new Error('useAuth must be used within AuthProvider');
+  return context;
 };
